@@ -15,13 +15,7 @@
       ./user-pkgs.nix
     ];
 
-  # Bootloader (All NVIDIA stuff is subject to be moved)
-  boot = {
-    initrd = {
-      kernelModules = [ "nvidia" ]; 
-    };
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-  };
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

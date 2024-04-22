@@ -6,11 +6,19 @@
 
 {
 
+  # Bootloader
+  boot = {
+    initrd = {
+      kernelModules = [ "nvidia" ]; 
+    };
+    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  };
+
   # NVIDIA Packages
-    environment.systemPackages = with pkgs; [
-      nvidia-vaapi-driver
-      libva-utils
-    ];
+  environment.systemPackages = with pkgs; [
+    nvidia-vaapi-driver
+    libva-utils
+  ];
 
   # NVIDIA GPU Configuration (Using proprietary drivers)
   hardware.nvidia = {

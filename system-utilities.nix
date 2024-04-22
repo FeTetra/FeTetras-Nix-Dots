@@ -30,7 +30,11 @@
     # CLI and Shell Utilities
     nix-search-cli
     btop
-    cava 
+    cava
+
+    # Polkit Requisites
+    xorg.xhost
+    xorg.xauth 
 
   ];
 
