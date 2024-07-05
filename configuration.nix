@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./hyprland-configuration.nix
+      #./hyprland-configuration.nix
+      ./kde-configuration.nix
       ./nvidia-configuration.nix
       ./pipewire-configuration.nix
       ./system-utilities.nix
@@ -52,19 +53,17 @@
     xkb.layout = "us";
     xkb.variant = "";
     excludePackages = [ pkgs.xterm ];
-    libinput.enable = true;
   };
 
   # Enable extra services
   services.dbus.enable = true;
   services.tumbler.enable = true; # Might move, xfce related
-  
+  services.libinput.enable = true;
+
   # Hardware Configuration (Might move, depends if these should be enabled outside of using hyprland)
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
       extraPackages = with pkgs; [ # Might Move, may not be necessary for a more barebones config
         vaapiVdpau
         libvdpau-va-gl
@@ -82,6 +81,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Enable nix flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -115,6 +118,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }

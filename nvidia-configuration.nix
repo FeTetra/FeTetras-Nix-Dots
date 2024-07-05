@@ -11,7 +11,7 @@
     initrd = {
       kernelModules = [ "nvidia" ]; 
     };
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11_beta ];
   };
 
   # NVIDIA Packages
@@ -26,8 +26,8 @@
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
-    forceFullCompositionPipeline = true; # May change this seems stupid.
-    powerManagement.enable = false; # No clue what this does lolol might disable if no effect. (Have found what this does but still may disable)
+    forceFullCompositionPipeline = false;
+    powerManagement.enable = false;
   };
 
   # NVIDIA Services
@@ -39,6 +39,7 @@
     GBM_BACKEND = "nvidia-drm";
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
+    MOZ_ENABLE_WAYLAND = "0";
   };
   
 }

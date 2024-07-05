@@ -17,12 +17,14 @@
     ntfsprogs
     udiskie
     udisks2
-    gnome.file-roller
+    #gnome.file-roller
     parted
     gparted
     steam-run
     pavucontrol
-    
+    okteta   
+    mpv 
+
     # Possible to remove later
     woeusb
     woeusb-ng  
@@ -31,6 +33,16 @@
     nix-search-cli
     btop
     cava
+    git
+
+    # Script langs
+    python3Full
+    zig
+    jdk21    
+
+    # Lang libs
+    python312Packages.leb128
+    python312Packages.pyside6
 
     # Polkit Requisites
     xorg.xhost
@@ -38,9 +50,9 @@
 
   ];
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "fetetra" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.guest.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #users.extraGroups.vboxusers.members = [ "fetetra" ];
 
 }

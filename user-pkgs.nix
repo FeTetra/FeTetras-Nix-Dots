@@ -8,11 +8,16 @@
 
   environment.systemPackages = with pkgs; [
     discord
+    spotify
     betterdiscord-installer
     vesktop
     floorp
+    firefox
     steam
     obs-studio
+    smplayer
+    rpcs3
+    bottles
   ];
 
 }
